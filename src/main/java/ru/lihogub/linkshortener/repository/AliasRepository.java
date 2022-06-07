@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface AliasRepository extends JpaRepository<Alias, Long> {
-    Optional<Alias> findByAlias(String alias);
-    boolean existsByAlias(String alias);
+    Optional<Alias> findById(String id);
+    boolean existsById(String id);
 }
