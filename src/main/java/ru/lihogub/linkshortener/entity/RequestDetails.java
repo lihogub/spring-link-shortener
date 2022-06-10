@@ -15,7 +15,6 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RequestDetails {
-    @CreatedDate
     @Column(name = "date")
     private Date date;
     @Column(name = "ip")

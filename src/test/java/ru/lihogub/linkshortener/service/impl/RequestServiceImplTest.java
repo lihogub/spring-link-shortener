@@ -51,12 +51,10 @@ class RequestServiceImplTest {
     @Transactional
     void performRequestTestCreateAndPerform() {
         final String generatedAlias = aliasService.generateAlias(URL);
-        System.out.println(DETAILS);
         Assertions.assertDoesNotThrow(() -> requestService.performRequest(generatedAlias, DETAILS));
         List<RequestDto> requestDtoList;
         requestDtoList = Assertions.assertDoesNotThrow(() -> requestService.findAllByAlias(generatedAlias));
         Assertions.assertNotNull(requestDtoList);
-        System.out.println(requestDtoList);
         Assertions.assertEquals(1, requestDtoList.size());
 
         Assertions.assertEquals(IP, requestDtoList.get(0).getIp());

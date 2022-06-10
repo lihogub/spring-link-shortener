@@ -30,8 +30,6 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<RequestDto> findAllByAlias(String alias) {
-        List<Request> requestList = requestRepository.findAllByAlias(alias);
-        System.out.println(requestList);
-        return requestMapper.requestListToRequestDtoList(requestList);
+        return requestMapper.requestListToRequestDtoList(requestRepository.findAllByAlias(alias));
     }
 }
