@@ -2,11 +2,9 @@ package ru.lihogub.linkshortener.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.CreatedDate;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.UUID;
 
 @Getter
 @Setter
@@ -14,11 +12,10 @@ import java.util.UUID;
 @Table(name = "requests", indexes = {@Index(columnList = "alias_id")})
 public class Request {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @ManyToOne(fetch = FetchType.LAZY)
     private Alias alias;
-    private String ip;
-    @CreatedDate
-    private Date date;
+    @Embedded
+    private RequestDetails details;
 }

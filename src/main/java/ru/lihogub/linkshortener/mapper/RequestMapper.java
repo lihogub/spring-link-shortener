@@ -10,8 +10,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface RequestMapper {
-    @Mapping(source = "ip", target = "ip")
-    @Mapping( source = "date", target = "timestamp")
+    @Mapping(source = "details.ip", target = "ip")
+    @Mapping( source = "details.date", target = "timestamp")
     RequestDto requestToRequestDto(Request request);
 
     List<RequestDto> requestListToRequestDtoList(List<Request> requestList);
